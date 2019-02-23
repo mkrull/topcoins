@@ -24,7 +24,6 @@ setup(
     entry_points={
         'console_scripts':[
             'pricing-api = pricing.api:run',
-            'pricing-cli = pricing.client:cli',
         ]
     },
     url='https://github.com/mkrull/topcoins/pricing'

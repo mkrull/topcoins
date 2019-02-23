@@ -24,7 +24,6 @@ setup(
     entry_points={
         'console_scripts':[
             'ranking-api = ranking.api:run',
-            'ranking-cli = ranking.client:cli',
         ]
     },
     url='https://github.com/mkrull/topcoins/ranking'

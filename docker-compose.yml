@@ -5,14 +5,17 @@ services:
     expose:
     - '3000' 
     environment:
-      COINMARKETCAP_API_TOKEN="$COINMARKETCAP_API_TOKEN"
+    - COINMARKETCAP_API_TOKEN=$COINMARKETCAP_API_TOKEN
   ranking:
     build: ./ranking
     expose:
     - '3000' 
     environment:
-      CRYPTOCOMPARE_API_TOKEN="$CRYPTOCOMPARE_API_TOKEN"
+    - CRYPTOCOMPARE_API_TOKEN=$CRYPTOCOMPARE_API_TOKEN
   api:
     build: ./api
     ports:
     - '3000:3000' 
+    environment:
+    - PRICING_URL=http://pricing:3000/pricing
+    - RANKING_URL=http://ranking:3000/ranking
