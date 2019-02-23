@@ -1,6 +1,8 @@
 import json
 
-from flask import Flask
+import ranking.client as client
+
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -9,7 +11,11 @@ def ranking():
     '''
     ranking returns a list of top coins.
     '''
-    return json.dumps({'msg': 'hello'})
+
+    limit = request.args.get('limit', 200)
+    ranking = client.get_ranking_by_marketcap(client.load_config(), limit)
+
+    return json.dumps(ranking)
 
 
 def run():
