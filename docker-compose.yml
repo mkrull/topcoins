@@ -1,0 +1,14 @@
+version: '3'
+services:
+  pricing:
+    build: ./pricing
+    expose:
+    - '3000' 
+  ranking:
+    build: ./ranking
+    expose:
+    - '3000' 
+  api:
+    build: ./api
+    ports:
+    - '3000:3000' 
